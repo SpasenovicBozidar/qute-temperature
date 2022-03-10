@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form action="/temperature" method="post">
+    <label for="month">Choose a Month:</label>
+    <select name="month" id="month">
+        <option value="JANUARY">JANUARY</option>
+        <option value="FEBRUARY">FEBRUARY</option>
+        <option value="MARCH">MARCH</option>
+        <option value="APRIL">APRIL</option>
+        <option value="MAY">MAY</option>
+        <option value="JUNE">JUNE</option>
+        <option value="JULY">JULY</option>
+        <option value="AUGUST">AUGUST</option>
+        <option value="SEPTEMBER">SEPTEMBER</option>
+        <option value="OCTOBER">OCTOBER</option>
+        <option value="NOVEMBER">NOVEMBER</option>
+        <option value="DECEMBER">DECEMBER</option>
+    </select>
+    <input type="submit" value="Change Month">
+</form>
+<table>
+<tr>
+    <th>Year</th>
+    <th>Temperature</th>
+    <th>Temp graph</th>
+
+</tr>
+
+{#for temperature > temperatures}
+<tr>
+
+    <td style="font: 10px sans-serif; text-align: left; color: steelblue">{temperature.year} </td>
+    <td style="font: 10px sans-serif; text-align: right; color: steelblue"> {temperature.temperature} </td>
+    <td style="font: 10px sans-serif; text-align: left; color: white">
+        <div style="background: steelblue; text-align: right; padding: 3px; margin: 1px; margin-left: 300px; width: {temperature.calcWidth()}px;">{temperature.temperature}</div>
+    </td>
+
+</tr>
+{/for}
+
+</table>
+
+</body>
+
+<script>
+    console.log('JANUARY');
+    let elementMonth = document.getElementById('month');
+    elementMonth.value = 'JANUARY';
+</script>
+
+</html>
